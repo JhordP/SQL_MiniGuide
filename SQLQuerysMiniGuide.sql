@@ -44,3 +44,8 @@ SELECT * FROM testTable WHERE column2 IS NULL;
 
 --Look for Not Null data
 SELECT * FROM testTable WHERE column2 IS NOT NULL;
+/***************************************************************************************************************************/
+/* UPDATE */
+
+--Updating data in a row, with a condition. Otherwise, all data including the columns specified will be updated inside the table.
+UPDATE testTable SET column1 = 1, column2 = 'newValue' WHERE column3 = 'value3';
