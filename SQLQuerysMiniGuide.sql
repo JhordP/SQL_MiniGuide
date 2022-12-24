@@ -27,6 +27,10 @@ SELECT * FROM testTable ORDER BY column1 DESC;
 --Group first by column1 in descendent way, and then by the column3 ascendent when they have the same column1 data.
 SELECT * FROM testTable ORDER BY column1 DESC, column3 ASC;
 
+--Search a specified quantity of rows in the table
+SELECT TOP 5 column1, column2 FROM testTable WHERE column3 = 'value';
+SELECT TOP 5 PERCENT column1, column2 FROM testTable;
+
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
 
