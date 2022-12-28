@@ -54,6 +54,24 @@ SELECT AVG(column1) FROM testTable WHERE column1 = 'value';
 --SUM: returns the total sum of a numeric column.
 SELECT SUM(column1) FROM testTable WHERE column1 = 'value';
 
+--Search using a filter or pattern. % is like * in a linux[ls -lrt Something*]
+-- the _ works like quantity of chars to look with the criteria. % and _ are Wildcards. Example:
+
+SELECT TOP 5 column1, column2 FROM testTable WHERE column3 LIKE 'sys%'; --Looks for 5 col1 and col2 which col3 starts with 'sys'
+SELECT TOP 5 column1, column2 FROM testTable WHERE column3 LIKE '%sys'; --Looks for 5 col1 and col2 which col3 ends with 'sys'
+SELECT TOP 5 column1, column2 FROM testTable WHERE column3 LIKE '%sys%'; --Looks for 5 col1 and col2 which col3 has 'sys' anywhere
+SELECT * FROM testTable WHERE column2 LIKE 'Ju_%' --Finds any value that starts with 'Ju' and is at least 3 character length
+SELECT * FROM testTable WHERE column2 LIKE 'J__%' --Finds any value that starts with 'J' and is at least 3 character length
+SELECT * FROM testTable WHERE column2 LIKE '___a%' --Finds any value that has 'a' in the 4th position.
+
+--Wildcards. Data taken from https://www.w3schools.com/sql/sql_wildcards.asp
+/*
+%	Represents zero or more characters	bl% finds bl, black, blue, and blob
+_	Represents a single character	h_t finds hot, hat, and hit
+[]	Represents any single character within the brackets	h[oa]t finds hot and hat, but not hit
+^	Represents any character not in the brackets	h[^oa]t finds hit, but not hot and hat
+-	Represents any single character within the specified range	c[a-b]t finds cat and cbt
+*/
 
 
 /***************************************************************************************************************************/
