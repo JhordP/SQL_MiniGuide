@@ -39,7 +39,21 @@ SELECT TOP 5 PERCENT column1, column2 FROM testTable;
 
 --Search min (smallest) and max (largest) values of the selected column
 SELECT MIN(column1) FROM testTable WHERE column2>=20;
-SELECT MAX(column1) FROM testTable WHERE column2=35;
+SELECT MAX(column1) FROM testTable WHERE column2=35; 
+
+--You can use AS keyword to specify how you want the column to be called.
+--The query below looks for the largest value of the col1 that supplies the condition and name the result "largerValue".
+SELECT MAX(column1) AS largerValue FROM testTable WHERE column2=10 
+
+--COUNT: Returns the number of rows that matches a specified criteria
+SELECT COUNT(column2) FROM testTable WHERE column1 = 'value';
+
+--AVERAGE: Returns the average value of a numeric column.
+SELECT AVG(column1) FROM testTable WHERE column1 = 'value';
+
+--SUM: returns the total sum of a numeric column.
+SELECT SUM(column1) FROM testTable WHERE column1 = 'value';
+
 
 
 /***************************************************************************************************************************/
