@@ -73,6 +73,11 @@ _	Represents a single character	h_t finds hot, hat, and hit
 -	Represents any single character within the specified range	c[a-b]t finds cat and cbt
 */
 
+--OR condition shorthand: IN
+SELECT column1 FROM testTable WHERE column1 IN ('value1','value2','value3') --returns all col1 equals to value1, value2, or value3
+SELECT column1 FROM testTable WHERE column1 NOT IN ('value1','value2','value3') --returns all col1 not equals to value1, value2, or value3
+SELECT * FROM testTable WHERE column2 IN (SELECT _column FROM anotherTable) --returns all data which values are the same in col2(testTable) and _column(anotherTable)
+
 
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
