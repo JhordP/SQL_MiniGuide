@@ -78,6 +78,11 @@ SELECT column1 FROM testTable WHERE column1 IN ('value1','value2','value3') --re
 SELECT column1 FROM testTable WHERE column1 NOT IN ('value1','value2','value3') --returns all col1 not equals to value1, value2, or value3
 SELECT * FROM testTable WHERE column2 IN (SELECT _column FROM anotherTable) --returns all data which values are the same in col2(testTable) and _column(anotherTable)
 
+--Search data between ranges. Putting NOT before Between makes it to discard the range in the query result.
+SELECT * FROM testTable WHERE column1 BETWEEN 10 AND 20; --Numeric: Between values 10-20
+SELECT * FROM testTable WHERE column1 BETWEEN 'A-value' AND 'D-value'; --Text: Alphabetic search between A-value and D-value.
+SELECT * FROM testTable WHERE column1 BETWEEN #09/19/2014# AND #08/10/2022#; --Date: in this case Between 19Sept2014 and 10Augt2022
+SELECT * FROM testTable WHERE column1 BETWEEN '2014-09-19' AND '2022-08-10'; --Date: in this case Between 19Sept2014 and 10Augt2022
 
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
