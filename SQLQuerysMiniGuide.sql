@@ -84,6 +84,18 @@ SELECT * FROM testTable WHERE column1 BETWEEN 'A-value' AND 'D-value'; --Text: A
 SELECT * FROM testTable WHERE column1 BETWEEN #09/19/2014# AND #08/10/2022#; --Date: in this case Between 19Sept2014 and 10Augt2022
 SELECT * FROM testTable WHERE column1 BETWEEN '2014-09-19' AND '2022-08-10'; --Date: in this case Between 19Sept2014 and 10Augt2022
 
+--Aliases for columns
+SELECT IDcolumn AS ID, column2 AS customer FROM testTable;
+
+--Aliases with spaces
+SELECT column2 AS [Some New Name] FROM testTable;
+
+--Combine columns with Alias
+SELECT clientName, clientAddress + ', ' + City + ', ' + Country AS clAdress FROM clientTable
+
+--Aliases with tables
+SELECT t.ticketID, t.ticketDate, u.username FROM Users AS u, Ticket as t WHERE u.username='Some Name' AND u.userID=t.userID;
+
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
 
