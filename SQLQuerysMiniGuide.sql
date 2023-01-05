@@ -96,6 +96,25 @@ SELECT clientName, clientAddress + ', ' + City + ', ' + Country AS clAdress FROM
 --Aliases with tables
 SELECT t.ticketID, t.ticketDate, u.username FROM Users AS u, Ticket as t WHERE u.username='Some Name' AND u.userID=t.userID;
 
+--**JOINS**-- https://www.w3schools.com/sql/sql_join.asp
+
+--Inner Join: selects records that have matching values in both tables. Shows data when there is NOT null value in neither of the tables.
+SELECT t1.nameColumn, t2.purchaseColumn FROM personTable AS t1 INNER JOIN marketTable AS t2 ON t1.personID = t2.customerID;
+
+--Left Join: returns all records from the left table (table1), and the matching records from the right table (table2). 
+--The result is 0 records from the right side, if there is no match. Doesn't matter if the Left table does not have a match or 
+--the Right table has null data on that ID, it shows all the left side data.
+SELECT t1.nameColumn, t2.purchaseColumn FROM personTable AS t1 LEFT JOIN marketTable AS t2 ON t1.personID = t2.customerID;
+
+--Right Join: returns all records from the right table (table2), and the matching records from the left table (table1). 
+--The result is 0 records from the left side, if there is no match. Doesn't matter if the Right table does not have a match or 
+--the Left table has null data on that ID, it shows all the Right side data.
+SELECT t1.nameColumn, t2.purchaseColumn FROM personTable AS t1 RIGHT JOIN marketTable AS t2 ON t1.personID = t2.customerID;
+
+--Full Join: FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+--BTW: FULL JOIN and FULL OUTER JOIN are the same.
+SELECT t1.nameColumn, t2.purchaseColumn FROM personTable AS t1 FULL JOIN marketTable AS t2 ON t1.personID = t2.customerID WHERE something = 'whatever';
+
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
 
