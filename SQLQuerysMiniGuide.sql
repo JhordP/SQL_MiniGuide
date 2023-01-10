@@ -97,7 +97,7 @@ SELECT clientName, clientAddress + ', ' + City + ', ' + Country AS clAdress FROM
 SELECT t.ticketID, t.ticketDate, u.username FROM Users AS u, Ticket as t WHERE u.username='Some Name' AND u.userID=t.userID;
 
 --**JOINS**-- https://www.w3schools.com/sql/sql_join.asp
-
+-------------------------------------------------------------------------------------------------------
 --Inner Join: selects records that have matching values in both tables. Shows data when there is NOT null value in neither of the tables.
 SELECT t1.nameColumn, t2.purchaseColumn FROM personTable AS t1 INNER JOIN marketTable AS t2 ON t1.personID = t2.customerID;
 
@@ -121,6 +121,18 @@ FROM Table1 A, Table1 B --These are different Aliases for the same table.
 WHERE A.CustomerID <> B.CustomerID --Not equal ID
 AND A.City = B.City 
 ORDER BY A.City;
+---------------------------------------------------------------------------------------------------
+
+--UNION: Combines the result of two or more SELECTs.
+-->SELECT statements within UNION must have the same number of columns.
+-->They must have similar data types.
+-->The columns in every SELECT statement must also be in the same order.
+-->UNION applies DISTINCT by default. To To allow duplicate values, you can use UNION ALL.
+SELECT CountryColumn FROM table1 UNION SELECT CountryColumn FROM table2;
+SELECT Address FROM table1 WHERE City = 'Argentina' UNION SELECT Address FROM table2 WHERE City = 'Argentina';
+
+--Categorize first by Owner and second by Store.
+SELECT 'Owner' AS Relationship, Name FROM table1 WHERE Status='OK' UNION SELECT 'Store', Name FROM table2 WHERE Status='Ok';
 
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
