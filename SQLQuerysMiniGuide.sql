@@ -115,6 +115,13 @@ SELECT t1.nameColumn, t2.purchaseColumn FROM personTable AS t1 RIGHT JOIN market
 --BTW: FULL JOIN and FULL OUTER JOIN are the same.
 SELECT t1.nameColumn, t2.purchaseColumn FROM personTable AS t1 FULL JOIN marketTable AS t2 ON t1.personID = t2.customerID WHERE something = 'whatever';
 
+--"Self Join:" I personally don't think why i would ever use this. A table joined itself.
+SELECT A.Table1 AS ColumnName1, B.Table1 AS ColumnName2, A.City
+FROM Table1 A, Table1 B --These are different Aliases for the same table.
+WHERE A.CustomerID <> B.CustomerID --Not equal ID
+AND A.City = B.City 
+ORDER BY A.City;
+
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
 
