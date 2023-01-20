@@ -134,6 +134,10 @@ SELECT Address FROM table1 WHERE City = 'Argentina' UNION SELECT Address FROM ta
 --Categorize first by Owner and second by Store.
 SELECT 'Owner' AS Relationship, Name FROM table1 WHERE Status='OK' UNION SELECT 'Store', Name FROM table2 WHERE Status='Ok';
 
+--Categorize with statistics: Group By. It should be used with [COUNT(), MAX(), MIN(), SUM(), AVG()]
+SELECT columns FROM table1 WHERE data='somename' GROUP BY column;
+SELECT COUNT(IDEmployees), department FROM Employees WHERE condition GROUP BY department;
+
 /***************************************************************************************************************************/
 /** INSERTING NEW DATA [INSERT] **/
 
